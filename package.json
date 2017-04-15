@@ -1,0 +1,25 @@
+{
+  "name": "restaurant-reservations",
+  "version": "1.0.0",
+  "description": "reservation api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paden-pace/restaurant-reservations.git"
+  },
+  "author": "jonathan, payton, paul, corey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paden-pace/restaurant-reservations/issues"
+  },
+  "homepage": "https://github.com/paden-pace/restaurant-reservations#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "path": "^0.12.7"
+  }
+}
