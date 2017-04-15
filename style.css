@@ -1,0 +1,8 @@
+body{
+	width:100%;
+	height:auto;
+	background-image: url(./images/apple.jpg);
+	background-repeat: repeat;
+	background-position: 0 0 0 px;
+	background-attachment: fixed; 
+}
