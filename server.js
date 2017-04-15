@@ -21,40 +21,8 @@ app.use(bodyParser.json({
 
 // Restaurant reservation data
 // =============================================================
-var reservation = [{
-  routeName: "corey",
-  name: "corey brooks",
-  phone: 5125122345,
-  email: "corey@blahblah",
-  uniqueID: 1
-}, {
-  routeName: "paul",
-  name: "paul",
-  phone: 5125126785,
-  email: "paul@blahblah",
-  uniqueID: 2
-}, {
-  routeName: "jonathan",
-  name: "jonathan",
-  phone: 123434564,
-  email: "jonathan@blahblah",
-  uniqueID: 3
-}];
-
-var wait = [{
-  routeName: "payton",
-  name: "payton",
-  phone: 5125122345,
-  email: "payton@blahblah",
-  uniqueID: 2
-}, {
-  routeName: "jeff",
-  name: "jeff",
-  phone: 5125126785,
-  email: "jeff@blahblah",
-  uniqueID: 5
-}];
-
+var reservation = [];
+var wait = [];
 
 // Routes
 // =============================================================
