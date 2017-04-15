@@ -10,6 +10,13 @@
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+  	<style>
+		body{
+			background-color: #e26363;
+		}
+	</style>
+
 </head>
 <body>
 
@@ -18,10 +25,15 @@
 			<div class="jumbotron text-center">
 				<h1 aria-label="left-align"><span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span> Just Apples</h1>
 				<hr>
-				<h2><b>It's literally just apples!</b></h5>				
-					<button type="button" class="btn btn-danger" aria-label="left-align"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> Make Reservation</button>
-					<button type="button" class="btn btn-default"><span  class="glyphicon glyphicon-home" aria-hidden="true"></span></button>
+				<h2><b>It's literally just apples!</b></h5>	
+					<a href="./reserve">			
+						<button type="button" class="btn btn-danger" aria-label="left-align"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> Make Reservation</button>
+					</a>
+					<a href="./">
+						<button type="button" class="btn btn-default"><span  class="glyphicon glyphicon-home" aria-hidden="true"></span></button>
+					</a>
 			</div>
+
 		</div>
 		<div class="row">
 			<div class="col-md-12">
@@ -43,6 +55,10 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<a href="./api"><p>API List</p></a>
+			<!--<a href=""><p>API Wait List</p></a>-->
+		</div>
 	</div>
 	
 	<script type="text/javascript">
@@ -51,7 +67,7 @@
 			var currentURL = window.location.origin;
 
 			$.ajax({
-				url: currentURL + "/api/table",
+				url: currentURL + "/api/reservation",
 				method: "GET"
 			}).done(function(tableData){
 				for (var i = 0; i < table.length; i++) {
@@ -76,7 +92,7 @@
 			var currentURL = window.location.origin;
 
 			$.ajax({
-				url: currentURL + "/api/waiting",
+				url: currentURL + "/api/wait",
 				method: "GET"
 			}).done(function(waitingData){
 				for (var i = 0; i < waiting.length; i++) {
