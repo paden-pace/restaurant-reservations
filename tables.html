@@ -56,8 +56,8 @@
 			</div>
 		</div>
 		<div class="row">
-			<a href="./api"><p>API List</p></a>
-			<!--<a href=""><p>API Wait List</p></a>-->
+			<a href="./api"><p>API Reserve List</p></a>
+			<a href="./api1"><p>API Wait List</p></a>
 		</div>
 	</div>
 	
@@ -114,6 +114,34 @@
 		}
 
 	</script>
+	<script type="text/javascript">
+
+    $.get("/api", function(data) {
+      for (var i = 0; i < data.length; i++) {
+		var orderNumber = i+1;
+        var wellSection = $("<div>");
+        wellSection.addClass("well");
+        wellSection.attr("id", "reserve-well-" + i);
+		$("#tables").append(wellSection);
+		$("#reserve-well-" + i).append("<h2> Order Number: " + orderNumber + "</h2>");
+		$("#reserve-well-" + i).append("<h2> Name: " + data[i].name + "</h2>");
+		$("#reserve-well-" + i).append("<h3>Unique Number: " + data[i].unique + "</h4>");
+	  }
+    });
+
+	 $.get("/api1", function(data) {
+      for (var j = 0; j < data.length; j++) {
+		var orderNumber = j+1;
+        var wellSection = $("<div>");
+        wellSection.addClass("well");
+        wellSection.attr("id", "wait-well-" + j);
+		$("#waiting").append(wellSection);
+		$("#wait-well-" + j).append("<h2> Order Number: " + orderNumber + "</h2>");
+		$("#wait-well-" + j).append("<h2> Name: " + data[j].name + "</h2>");
+		$("#wait-well-" + j).append("<h3>Unique Number: " + data[j].unique + "</h4>");
+	  }
+    });
+  </script>
 
 </body>
 </html>
