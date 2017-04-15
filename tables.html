@@ -9,6 +9,7 @@
 		 crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
@@ -44,5 +45,59 @@
 		</div>
 	</div>
 	
+	<script type="text/javascript">
+
+		function getTableList() {
+			var currentURL = window.location.origin;
+
+			$.ajax({
+				url: currentURL + "/api/table",
+				method: "GET"
+			}).done(function(tableData){
+				for (var i = 0; i < table.length; i++) {
+					var div = $("<div>");
+					var tableNum = i + 1;
+
+					div.addClass("well");
+					div.attr("id", "table-num-" + tableNum);
+					$("#tables").append(div);					
+
+					var h2 = $("<h2>");
+					var span = $("<span>");
+					span.append(tableNum + ": " + tableData[i].name);
+					h2.append(span);
+
+					$("#table-num-" + tableNum).append(h2);
+				}
+			});
+		}
+
+		function getWaitingList() {
+			var currentURL = window.location.origin;
+
+			$.ajax({
+				url: currentURL + "/api/waiting",
+				method: "GET"
+			}).done(function(waitingData){
+				for (var i = 0; i < waiting.length; i++) {
+					var div = $("<div>");
+					var tableNum = i + 1;
+
+					div.addClass("well");
+					div.attr("id", "waiting-num-" + tableNum);
+					$("#tables").append(div);					
+
+					var h2 = $("<h2>");
+					var span = $("<span>");
+					span.append(tableNum + ": " + waitingData[i].name);
+					h2.append(span);
+
+					$("#waiting-num-" + tableNum).append(h2);
+				}
+			});
+		}
+
+	</script>
+
 </body>
 </html>
