@@ -123,18 +123,15 @@ app.post("/api/new", function(req, res) {
   // We then add the json the user sent to the reservation array
     reservation.push(newReservation);
     newReservation.conirmation = 'confirm reservation';
-    console.log(newReservation.confirmation);
   }
 
   else {
     wait.push(newReservation);
     newReservation.conirmation = 'confirm waitlist';
-    console.log(newReservation.confirmation);
   }
   // We then display the JSON to the users
   res.json(newReservation);
 });
-
 
 // Starts the server to begin listening
 // =============================================================
