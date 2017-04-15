@@ -61,23 +61,20 @@ var wait = [{
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
-  // res.send("Welcome to the Star Wars Page!")
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.get("/tables", function(req, res) {
-  // res.send("Welcome to the Star Wars Page!")
   res.sendFile(path.join(__dirname, "tables.html"));
 });
 
 app.get("/reserve", function(req, res) {
-  // res.send("Welcome to the Star Wars Page!")
   res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 
 
-// Search for Specific Character (or all characters) - provides JSON
+// Search for Specific Reservation (or all reservations) - provides JSON
 app.get("/api/:reservation?", function(req, res) {
   var chosen = req.params.reservation;
 
@@ -93,6 +90,8 @@ app.get("/api/:reservation?", function(req, res) {
   }
   return res.json(reservation);
 });
+
+// Search for Specific Wait (or all wait) - provides JSON
 
 app.get("/api1/:wait?", function(req, res) {
   var chosen = req.params.wait;
@@ -111,16 +110,27 @@ app.get("/api1/:wait?", function(req, res) {
 });
 
 
-// Create New Characters - takes in JSON input
+// Create New Reservation - takes in JSON input
 app.post("/api/new", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   var newReservation = req.body;
+  newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+ 
 
   console.log(newReservation);
 
-  // We then add the json the user sent to the character array
-  reservation.push(newReservation);
+  if (reservation.length<5) {
+  // We then add the json the user sent to the reservation array
+    reservation.push(newReservation);
+    newReservation.conirmation = 'confirm reservation';
+    console.log(newReservation.confirmation);
+  }
 
+  else {
+    wait.push(newReservation);
+    newReservation.conirmation = 'confirm waitlist';
+    console.log(newReservation.confirmation);
+  }
   // We then display the JSON to the users
   res.json(newReservation);
 });
