@@ -51,7 +51,7 @@
 			var currentURL = window.location.origin;
 
 			$.ajax({
-				url: currentURL + "/api/table",
+				url: currentURL + "/api/reservation",
 				method: "GET"
 			}).done(function(tableData){
 				for (var i = 0; i < table.length; i++) {
@@ -76,7 +76,7 @@
 			var currentURL = window.location.origin;
 
 			$.ajax({
-				url: currentURL + "/api/waiting",
+				url: currentURL + "/api/wait",
 				method: "GET"
 			}).done(function(waitingData){
 				for (var i = 0; i < waiting.length; i++) {
